@@ -1,0 +1,109 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f5f7fb;
+}
+
+.app {
+  display: flex;
+  height: 100vh;
+}
+
+/* SIDEBAR */
+.sidebar {
+  width: 240px;
+  background: white;
+  padding: 20px;
+  border-right: 1px solid #ddd;
+}
+
+.logo {
+  margin-bottom: 30px;
+}
+
+.menu {
+  list-style: none;
+  padding: 0;
+}
+
+.menu li {
+  padding: 12px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.menu li.active,
+.menu li:hover {
+  background: #5b7cfa;
+  color: white;
+}
+
+.logout {
+  margin-top: 40px;
+  color: red;
+  cursor: pointer;
+}
+
+/* CONTENT */
+.content {
+  flex: 1;
+  padding: 30px;
+}
+
+.section {
+  margin-top: 20px;
+}
+
+.hidden {
+  display: none;
+}
+
+/* FORM */
+.doctor-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  max-width: 900px;
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+}
+
+.doctor-form input {
+  padding: 10px;
+}
+
+.doctor-form button {
+  grid-column: span 2;
+  padding: 12px;
+  background: #5b7cfa;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* TABLES */
+.table-wrapper {
+  overflow-x: auto;
+  margin-top: 15px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 900px;
+  background: white;
+}
+
+th, td {
+  padding: 12px;
+  border: 1px solid #ddd;
+  text-align: left;
+  white-space: nowrap;
+}
+
+th {
+  background: #f1f3f6;
+}

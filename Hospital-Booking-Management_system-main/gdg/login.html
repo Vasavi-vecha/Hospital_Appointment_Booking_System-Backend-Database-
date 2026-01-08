@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Hospital Login</title>
+  <link rel="stylesheet" href="login.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+
+</head>
+<body>
+
+<div class="bg">
+
+  <!-- LOGIN AREA -->
+  <div class="login-container">
+
+    <!-- HEADING JUST ABOVE BOXES -->
+    <h1 class="login-title">🏥 Hospital Management System</h1>
+
+    <div class="cards">
+
+      <div class="card">
+        <h3>Doctor Login</h3>
+        <input id="doctorEmail" placeholder="Email">
+        <input id="doctorPassword" type="password" placeholder="Password">
+        <button onclick="doctorLogin()">Login</button>
+      </div>
+
+     <div class="card">
+  <h3>Patient Login</h3>
+  <input id="patientEmail" placeholder="Email">
+  <input id="patientPassword" type="password" placeholder="Password">
+  <button onclick="patientLogin()">Login</button>
+</div>
+ 
+
+    </div>
+  </div>
+
+</div>
+
+<script src="login.js"></script>
+</body>

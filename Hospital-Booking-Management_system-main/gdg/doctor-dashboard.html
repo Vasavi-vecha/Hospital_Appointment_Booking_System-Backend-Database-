@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Doctor Dashboard</title>
+  <link rel="stylesheet" href="doctor-dashboard.css">
+</head>
+<body>
+
+<div class="app">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <h2 class="logo">Doctor Panel</h2>
+
+    <ul>
+      <li class="active" onclick="showSection('appointments')">Appointments</li>
+      <li onclick="showSection('reports')">Reports</li>
+      <li onclick="showSection('profile')">Profile</li>
+    </ul>
+
+    <p class="logout" onclick="logout()">Logout</p>
+  </aside>
+
+  <!-- CONTENT -->
+  <main class="content">
+
+    <h1 id="greet"></h1>
+    <p class="subtitle">Welcome to your dashboard</p>
+
+    <!-- APPOINTMENTS -->
+    <section id="appointments" class="section">
+      <h2>Scheduled Appointments</h2>
+
+      <table id="appTable">
+        <tr>
+          <th>Patient</th>
+          <th>Date</th>
+          <th>Time</th>
+          <th>Reason</th>
+        </tr>
+      </table>
+    </section>
+
+    <!-- REPORTS -->
+    <section id="reports" class="section hidden">
+      <h2>My Medical Reports</h2>
+
+      <table id="reportTable">
+        <tr>
+          <th>Patient</th>
+          <th>Date</th>
+          <th>Diagnosis</th>
+          <th>Prescription</th>
+          <th>Action</th>
+        </tr>
+      </table>
+    </section>
+
+    <!-- PROFILE -->
+    <section id="profile" class="section hidden">
+      <h2>Doctor Profile</h2>
+
+      <p><strong>Name:</strong> <span id="pName"></span></p>
+      <p><strong>Email:</strong> <span id="pEmail"></span></p>
+      <p><strong>Department:</strong> <span id="pDept"></span></p>
+      <p><strong>Degree:</strong> <span id="pDegree"></span></p>
+      <p><strong>Experience:</strong> <span id="pExp"></span></p>
+      <p><strong>Specialization:</strong> <span id="pSpec"></span></p>
+      <p><strong>Salary:</strong> ₹<span id="pSalary"></span></p>
+      <p><strong>Total Appointments Taken:</strong>
+        <span id="pAppointments"></span>
+      </p>
+    </section>
+
+  </main>
+</div>
+
+<script src="doctor-dashboard.js"></script>
+</body>
+</html>

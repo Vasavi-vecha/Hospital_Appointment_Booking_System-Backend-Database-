@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Patient Dashboard</title>
+  <link rel="stylesheet" href="patient-dashboard.css">
+</head>
+<body>
+
+<div class="app">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <h3 id="patientName"></h3>
+    <ul>
+      <li class="active" onclick="showSection('dashboard')">Dashboard</li>
+      <li onclick="showSection('book')">Book Appointment</li>
+      <li onclick="showSection('reports')">Reports</li>
+    </ul>
+    <p class="logout" onclick="logout()">Logout</p>
+  </aside>
+
+  <!-- CONTENT -->
+  <main class="content">
+
+    <!-- DASHBOARD -->
+    <section id="dashboard" class="section">
+      <h1 id="greeting"></h1>
+
+      <div class="stats">
+        <div class="stat-card scheduled">
+          <h2 id="scheduledCount">0</h2>
+          <p>Scheduled</p>
+        </div>
+        <div class="stat-card completed">
+          <h2 id="completedCount">0</h2>
+          <p>Completed</p>
+        </div>
+        <div class="stat-card cancelled">
+          <h2 id="cancelledCount">0</h2>
+          <p>Cancelled</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- BOOK APPOINTMENT -->
+    <section id="book" class="section hidden">
+      <h2>Book Appointment</h2>
+
+      <!-- NORMAL BOOKING FORM -->
+      <div class="appointment-form">
+
+        <div class="form-row">
+          <select id="deptSelect" onchange="loadDoctorsByDept()"></select>
+          <select id="doctorSelect"></select>
+        </div>
+
+        <div class="form-row">
+          <input type="date" id="appDate">
+          <input type="time" id="appTime">
+        </div>
+
+        <div class="form-row">
+          <input id="reason" placeholder="Reason for Visit">
+          <input id="mobile" placeholder="Mobile Number">
+        </div>
+
+        <button class="book-btn" onclick="bookAppointment()">
+          Book Appointment
+        </button>
+
+      </div>
+
+      <!-- ✅ VOICE BOOKING BUTTON (ADDED) -->
+      <button class="voice-btn" onclick="startVoiceBooking()">
+        🎤 Book Appointment by Voice
+      </button>
+
+      <p id="voiceOutput"></p>
+
+      <!-- MY APPOINTMENTS -->
+      <h3>My Appointments</h3>
+      <table id="myAppTable">
+        <tr>
+          <th>Doctor</th>
+          <th>Date</th>
+          <th>Time</th>
+          <th>Status</th>
+          <th>Action</th>
+        </tr>
+      </table>
+    </section>
+
+    <!-- REPORTS -->
+    <section id="reports" class="section hidden">
+      <h2>My Medical Reports</h2>
+
+      <table id="reportTable">
+        <tr>
+          <th>Doctor</th>
+          <th>Date</th>
+          <th>Diagnosis</th>
+          <th>Prescription</th>
+          <th>Notes</th>
+        </tr>
+      </table>
+    </section>
+
+  </main>
+</div>
+
+<script src="patient-dashboard.js"></script>
+</body>
+</html>

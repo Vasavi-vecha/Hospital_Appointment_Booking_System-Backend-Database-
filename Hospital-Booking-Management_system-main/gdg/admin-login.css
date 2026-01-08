@@ -1,0 +1,67 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", "Segoe UI", Arial, sans-serif;
+}
+
+/* Background */
+.bg {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(
+      rgba(0, 90, 160, 0.6),
+      rgba(0, 90, 160, 0.6)
+    ),
+    url("admin-bg.jpg.png");   /* same image as other login */
+  background-size: cover;
+  background-position: center;
+}
+
+/* Login Card */
+.login-box {
+  background: white;
+  width: 340px;
+  padding: 35px;
+  border-radius: 10px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.3);
+  text-align: center;
+}
+
+/* Heading */
+.login-box h2 {
+  margin-bottom: 20px;
+  font-size: 24px;
+  font-weight: 700;
+  color: #333;
+}
+
+/* Inputs */
+.login-box input {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+/* Button */
+.login-box button {
+  width: 100%;
+  padding: 12px;
+  margin-top: 15px;
+  background: #4f6ef7;   /* professional blue */
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.login-box button:hover {
+  background: #3b59e0;
+}

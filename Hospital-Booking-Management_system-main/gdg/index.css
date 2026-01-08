@@ -1,0 +1,159 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f7f9fc;
+}
+
+/* NAVBAR */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 40px;
+  background: white;
+}
+
+.logo {
+  font-size: 22px;
+  font-weight: bold;
+  color: #2d7ff9;
+}
+
+nav a {
+  margin-right: 20px;
+  text-decoration: none;
+  color: #333;
+}
+
+.login-btn {
+  padding: 8px 16px;
+  background: #2d7ff9;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* HERO */
+.hero {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 60px;
+}
+
+.hero-text h1 {
+  font-size: 40px;
+}
+
+.hero-text p {
+  margin: 15px 0;
+  color: #555;
+}
+
+.get-started {
+  padding: 10px 20px;
+  background: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.hero-image img {
+  width: 100%;
+  max-width: 600px;   
+  height: auto;
+  border-radius: 15px;
+}
+
+
+/* ABOUT */
+.about {
+  text-align: center;
+  padding: 60px;
+}
+
+.about h2 {
+  color: #2d7ff9;
+}
+.about, .contact {
+  background: white;
+  margin: 40px auto;
+  padding: 50px;
+  width: 80%;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.about h2, .contact h2 {
+  color: #2d7ff9;
+  margin-bottom: 20px;
+}
+
+.about p, .contact p {
+  color: #555;
+  line-height: 1.6;
+}
+
+.contact-info p {
+  margin: 10px 0;
+}
+/* HERO TEXT STYLING */
+.hero-text h1 {
+  font-size: 40px;
+  line-height: 1.2;
+}
+
+.hero-text .professional-bold {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  font-size: 52px;
+  color: #1a1a1a;
+  letter-spacing: 0.5px;
+}
+
+.hero-text p em {
+  font-style: italic;
+  font-size: 18px;
+  color: #555;
+}
+.hero-img {
+  border-radius: 20px;
+}
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 22px;
+  font-weight: bold;
+  color: #2d7ff9;
+}
+
+.logo-img {
+  width: 60px;     /* adjust as needed */
+  height: 60px;
+  object-fit: contain;
+}
+
+.logo .text {
+  font-family: Arial, sans-serif;
+}
+.logo-text {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  font-size: 30px;
+  letter-spacing: 1px;
+  color: #2d7ff9;   /* professional healthcare blue */
+}
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(
+    135deg,
+    #f4f9ff,
+    #e3f2fd,
+    #ffffff
+  );
+}
+

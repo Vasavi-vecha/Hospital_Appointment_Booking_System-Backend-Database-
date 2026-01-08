@@ -1,0 +1,70 @@
+/* ---------- BODY ---------- */
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: Arial, sans-serif;
+
+  /* Background image or gradient */
+  background: url("hospital-bg.jpg.jpeg") no-repeat center center;
+  background-size: cover;
+
+  /* Flex layout for vertical & horizontal alignment */
+  display: flex;
+  align-items: center;        /* vertical center */
+  justify-content: flex-start; /* move signup box to left */
+  padding-left: 80px;         /* distance from left edge */
+}
+
+/* ---------- SIGNUP CONTAINER ---------- */
+.signup-container {
+  background: white;
+  width: 380px;
+  padding: 40px;              /* inner padding inside box */
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  text-align: center;
+  border-top: 5px solid #2d7ff9;
+}
+
+/* Heading inside signup box */
+.signup-container h2 {
+  margin-bottom: 20px;
+  color: #2d7ff9;
+}
+
+/* Input fields */
+input {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Signup button */
+button {
+  width: 100%;
+  padding: 10px;
+  background: #28a745;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #218838;
+}
+
+/* Paragraphs inside signup box */
+p {
+  margin-top: 15px;
+}
+
+/* ---------- RESPONSIVE MOBILE FIX ---------- */
+@media (max-width: 768px) {
+  body {
+    justify-content: center; /* center on mobile */
+    padding-left: 0;         /* remove left padding */
+  }
+}

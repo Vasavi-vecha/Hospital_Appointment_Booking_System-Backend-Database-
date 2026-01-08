@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Admin Dashboard</title>
+  <link rel="stylesheet" href="admin-dashboard.css">
+</head>
+<body>
+
+<div class="app">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <h2 class="logo">Admin Panel</h2>
+
+    <ul class="menu">
+      <li class="active" onclick="showSection('doctors', this)">Doctors</li>
+      <li onclick="showSection('patients', this)">Patients</li>
+      <li onclick="showSection('reports', this)">Reports</li>
+    </ul>
+
+    <p class="logout" onclick="logout()">Logout</p>
+  </aside>
+
+  <!-- CONTENT -->
+  <main class="content">
+
+    <!-- DOCTORS -->
+    <section id="doctors" class="section">
+      <h2>Create Doctor Account</h2>
+
+      <div class="doctor-form">
+        <input id="dname" placeholder="Doctor Name">
+        <input id="demail" placeholder="Doctor Email">
+        <input id="dpass" placeholder="Password">
+        <input id="ddept" placeholder="Department">
+        <input id="ddegree" placeholder="Degree">
+        <input id="dexp" placeholder="Experience">
+        <input id="dspec" placeholder="Specialization">
+        <input id="dsalary" placeholder="Salary">
+        <button onclick="createDoctor()">Create Doctor</button>
+      </div>
+
+      <h3>Doctors List</h3>
+      <div class="table-wrapper">
+        <table id="doctorTable"></table>
+      </div>
+    </section>
+
+    <!-- PATIENTS -->
+    <section id="patients" class="section hidden">
+      <h2>Patients</h2>
+      <table id="patientTable"></table>
+    </section>
+
+    <!-- REPORTS -->
+    <section id="reports" class="section hidden">
+      <h2>All Medical Reports</h2>
+      <div class="table-wrapper">
+        <table id="reportTable"></table>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<script src="admin-dashboard.js"></script>
+</body>
+</html>
