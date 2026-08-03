@@ -108,6 +108,20 @@
   </main>
 </div>
 
+<!-- AAROGYA CHATBOT WIDGET -->
+<div class="chat-widget">
+  <button id="chatToggle" class="chat-toggle" onclick="toggleChat()">💬 Aarogya</button>
+  <div id="chatPanel" class="chat-panel hidden">
+    <div class="chat-header">Aarogya <span>Assistant</span></div>
+    <div id="chatMessages" class="chat-messages"></div>
+    <div class="chat-input-row">
+      <input id="chatInput" placeholder="Ask Aarogya..."
+             onkeydown="if(event.key==='Enter') sendChatMessage()">
+      <button onclick="sendChatMessage()">Send</button>
+    </div>
+  </div>
+</div>
+
 <script src="patient-dashboard.js"></script>
 </body>
 </html>

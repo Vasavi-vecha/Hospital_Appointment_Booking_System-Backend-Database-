@@ -153,3 +153,33 @@ function logout() {
 
 /* ================= INIT ================= */
 loadAppointments();
+
+/* ================= AAROGYA CHATBOT ================= */
+function toggleChat() {
+  chatPanel.classList.toggle("hidden");
+}
+
+function appendChatMessage(text, sender) {
+  const bubble = document.createElement("div");
+  bubble.className = `chat-msg ${sender}`;
+  bubble.innerText = text;
+  chatMessages.appendChild(bubble);
+  chatMessages.scrollTop = chatMessages.scrollHeight;
+}
+
+function sendChatMessage() {
+  const message = chatInput.value.trim();
+  if (!message) return;
+
+  appendChatMessage(message, "user");
+  chatInput.value = "";
+
+  fetch(`${BASE_URL}/chatbot/ask`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ message })
+  })
+    .then(res => res.json())
+    .then(data => appendChatMessage(data.reply, "bot"))
+    .catch(() => appendChatMessage("Sorry, Aarogya is unavailable right now.", "bot"));
+}

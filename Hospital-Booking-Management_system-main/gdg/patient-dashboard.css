@@ -175,3 +175,113 @@ th {
   cursor: pointer;
   font-size: 16px;
 }
+
+/* ================================
+   AAROGYA CHATBOT WIDGET
+================================ */
+.chat-widget {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 1000;
+  font-family: Arial, sans-serif;
+}
+
+.chat-toggle {
+  padding: 12px 18px;
+  border: none;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #2e86de, #1b4f72);
+  color: white;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(46,134,222,0.35);
+}
+
+.chat-panel {
+  position: absolute;
+  bottom: 60px;
+  right: 0;
+  width: 320px;
+  height: 420px;
+  background: white;
+  border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.chat-panel.hidden {
+  display: none;
+}
+
+.chat-header {
+  background: linear-gradient(135deg, #2e86de, #1b4f72);
+  color: white;
+  padding: 14px;
+  font-weight: bold;
+}
+
+.chat-header span {
+  font-weight: normal;
+  font-size: 12px;
+  opacity: 0.85;
+  margin-left: 6px;
+}
+
+.chat-messages {
+  flex: 1;
+  padding: 12px;
+  overflow-y: auto;
+  background: #f2f4f8;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.chat-msg {
+  max-width: 80%;
+  padding: 8px 12px;
+  border-radius: 12px;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.chat-msg.user {
+  align-self: flex-end;
+  background: #2e86de;
+  color: white;
+  border-bottom-right-radius: 2px;
+}
+
+.chat-msg.bot {
+  align-self: flex-start;
+  background: white;
+  color: #333;
+  border: 1px solid #ddd;
+  border-bottom-left-radius: 2px;
+}
+
+.chat-input-row {
+  display: flex;
+  border-top: 1px solid #ddd;
+}
+
+.chat-input-row input {
+  flex: 1;
+  border: none;
+  padding: 12px;
+  outline: none;
+  font-size: 14px;
+}
+
+.chat-input-row button {
+  border: none;
+  background: #2e86de;
+  color: white;
+  padding: 0 16px;
+  cursor: pointer;
+  font-weight: bold;
+}
