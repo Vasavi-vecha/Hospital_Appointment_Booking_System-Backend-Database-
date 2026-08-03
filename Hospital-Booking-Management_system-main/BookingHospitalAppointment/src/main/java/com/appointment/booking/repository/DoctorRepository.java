@@ -7,5 +7,5 @@ import java.util.Optional;
 
 public interface DoctorRepository extends JpaRepository<Doctor, Long> {
 
-    Optional<Doctor> findByEmailAndPassword(String email, String password);
+    Optional<Doctor> findByEmail(String email);
 }
