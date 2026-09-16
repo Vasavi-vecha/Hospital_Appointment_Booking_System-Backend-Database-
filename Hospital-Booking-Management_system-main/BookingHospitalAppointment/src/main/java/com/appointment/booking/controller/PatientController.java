@@ -9,7 +9,6 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/patients")
-@CrossOrigin("*")
 public class PatientController {
 
     private final PatientService service;

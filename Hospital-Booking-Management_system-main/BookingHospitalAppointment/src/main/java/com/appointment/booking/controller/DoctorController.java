@@ -10,7 +10,6 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/doctors")
-@CrossOrigin("*")
 public class DoctorController {
 
     private final DoctorService service;

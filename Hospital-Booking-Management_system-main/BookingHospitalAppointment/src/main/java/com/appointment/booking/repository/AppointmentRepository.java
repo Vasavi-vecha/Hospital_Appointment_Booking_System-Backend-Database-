@@ -9,4 +9,8 @@ public interface AppointmentRepository extends JpaRepository<Appointment, Long> 
 
     List<Appointment> findByPatientName(String patientName);
     List<Appointment> findByDoctorEmail(String doctorEmail);
+    List<Appointment> findByDoctorEmailAndDateAndStatus(String doctorEmail, String date, String status);
+
+    boolean existsByDoctorEmailAndDateAndTimeAndStatus(
+            String doctorEmail, String date, String time, String status);
 }

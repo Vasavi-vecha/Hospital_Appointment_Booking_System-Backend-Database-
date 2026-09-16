@@ -1,12 +1,9 @@
 /* ================= AUTH ================= */
 const doctor = JSON.parse(localStorage.getItem("loggedDoctor"));
-if (!doctor) {
+if (!doctor || !localStorage.getItem("token")) {
   alert("Doctor login required");
   window.location.href = "login.html";
 }
-
-/* ================= BASE URL ================= */
-const BASE_URL = "http://localhost:8080";
 
 /* ================= GREETING ================= */
 greet.innerText = "Hello Dr. " + doctor.name;
@@ -30,7 +27,7 @@ function showSection(id) {
 
 /* ================= LOAD APPOINTMENTS ================= */
 function loadAppointments() {
-  fetch(`${BASE_URL}/appointments/doctor/${doctor.email}`)
+  apiFetch(`/appointments/doctor/${doctor.email}`)
     .then(res => res.json())
     .then(apps => {
       appTable.innerHTML = `
@@ -44,6 +41,14 @@ function loadAppointments() {
       `;
 
       apps.forEach(a => {
+        let statusButtons = "";
+        if (a.status === "Scheduled") {
+          statusButtons = `
+            <button onclick="updateAppointmentStatus(${a.id}, 'Completed')">Complete</button>
+            <button onclick="updateAppointmentStatus(${a.id}, 'Cancelled')">Cancel</button>
+          `;
+        }
+
         appTable.innerHTML += `
           <tr>
             <td>${a.patientName}</td>
@@ -54,11 +59,25 @@ function loadAppointments() {
               <button onclick="prepareReport('${a.patientName}', '${a.date}')">
                 Add Report
               </button>
+              ${statusButtons}
             </td>
           </tr>
         `;
       });
     });
+}
+
+/* ================= UPDATE APPOINTMENT STATUS ================= */
+function updateAppointmentStatus(id, status) {
+  apiFetch(`/appointments/${id}/status?status=${status}`, { method: "PUT" })
+    .then(res => res.json().then(data => ({ ok: res.ok, data: data })))
+    .then(result => {
+      if (!result.ok) {
+        throw new Error(result.data.message || "Could not update appointment");
+      }
+      loadAppointments();
+    })
+    .catch(error => alert(error.message));
 }
 
 /* ================= PREPARE REPORT ================= */
@@ -80,12 +99,11 @@ function submitReport() {
     return;
   }
 
-  fetch(`${BASE_URL}/reports/add`, {
+  apiFetch("/reports/add", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
       patientName: patientName,
-      doctorEmail: doctor.email,
       date: date,
       diagnosis: diagnosis,
       prescription: prescription
@@ -106,7 +124,7 @@ function submitReport() {
 
 /* ================= LOAD REPORTS ================= */
 function loadReports() {
-  fetch(`${BASE_URL}/reports/doctor/${doctor.email}`)
+  apiFetch(`/reports/doctor/${doctor.email}`)
     .then(res => res.json())
     .then(reports => {
       reportTable.innerHTML = `
@@ -138,7 +156,7 @@ function loadProfile() {
   pDept.innerText = doctor.department;
   pSpec.innerText = doctor.specialization || "-";
 
-  fetch(`${BASE_URL}/appointments/doctor/${doctor.email}`)
+  apiFetch(`/appointments/doctor/${doctor.email}`)
     .then(res => res.json())
     .then(apps => {
       pAppointments.innerText = apps.length;
@@ -148,6 +166,7 @@ function loadProfile() {
 /* ================= LOGOUT ================= */
 function logout() {
   localStorage.removeItem("loggedDoctor");
+  localStorage.removeItem("token");
   window.location.href = "login.html";
 }
 
@@ -174,7 +193,7 @@ function sendChatMessage() {
   appendChatMessage(message, "user");
   chatInput.value = "";
 
-  fetch(`${BASE_URL}/chatbot/ask`, {
+  apiFetch("/chatbot/ask", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ message })

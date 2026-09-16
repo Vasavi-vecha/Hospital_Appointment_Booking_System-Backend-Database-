@@ -1,8 +1,6 @@
-const BASE_URL = "http://localhost:8080";
-
 /* ================= DOCTOR LOGIN ================= */
 function doctorLogin() {
-  fetch(`${BASE_URL}/doctors/login`, {
+  apiFetch("/doctors/login", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
@@ -10,20 +8,21 @@ function doctorLogin() {
       password: doctorPassword.value
     })
   })
-    .then(res => {
-      if (!res.ok) throw new Error();
-      return res.json();
-    })
-    .then(doctor => {
-      localStorage.setItem("loggedDoctor", JSON.stringify(doctor));
+    .then(res => res.json().then(data => ({ ok: res.ok, data: data })))
+    .then(result => {
+      if (!result.ok || !result.data.success) {
+        throw new Error(result.data.message || "Doctor not authorized");
+      }
+      localStorage.setItem("token", result.data.token);
+      localStorage.setItem("loggedDoctor", JSON.stringify(result.data.user));
       location.href = "doctor-dashboard.html";
     })
-    .catch(() => alert("Doctor not authorized"));
+    .catch(error => alert(error.message));
 }
 
 /* ================= PATIENT LOGIN ================= */
 function patientLogin() {
-  fetch(`${BASE_URL}/patients/login`, {
+  apiFetch("/patients/login", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
@@ -31,13 +30,14 @@ function patientLogin() {
       password: patientPassword.value
     })
   })
-    .then(res => {
-      if (!res.ok) throw new Error();
-      return res.json();
-    })
-    .then(patient => {
-      localStorage.setItem("loggedPatient", JSON.stringify(patient));
+    .then(res => res.json().then(data => ({ ok: res.ok, data: data })))
+    .then(result => {
+      if (!result.ok || !result.data.success) {
+        throw new Error(result.data.message || "Invalid email or password");
+      }
+      localStorage.setItem("token", result.data.token);
+      localStorage.setItem("loggedPatient", JSON.stringify(result.data.user));
       location.href = "patient-dashboard.html";
     })
-    .catch(() => alert("Invalid email or password"));
+    .catch(error => alert(error.message));
 }

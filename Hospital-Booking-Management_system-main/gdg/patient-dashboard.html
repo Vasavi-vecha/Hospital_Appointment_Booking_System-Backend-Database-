@@ -51,12 +51,12 @@
 
         <div class="form-row">
           <select id="deptSelect" onchange="loadDoctorsByDept()"></select>
-          <select id="doctorSelect"></select>
+          <select id="doctorSelect" onchange="loadSlots()"></select>
         </div>
 
         <div class="form-row">
-          <input type="date" id="appDate">
-          <input type="time" id="appTime">
+          <input type="date" id="appDate" onchange="loadSlots()">
+          <select id="appTime"></select>
         </div>
 
         <div class="form-row">
@@ -122,6 +122,7 @@
   </div>
 </div>
 
+<script src="api.js"></script>
 <script src="patient-dashboard.js"></script>
 </body>
 </html>

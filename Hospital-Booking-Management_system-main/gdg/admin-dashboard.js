@@ -1,11 +1,9 @@
 /* ================= AUTH ================= */
-if (localStorage.getItem("adminLoggedIn") !== "true") {
+const admin = JSON.parse(localStorage.getItem("loggedAdmin"));
+if (!admin || !localStorage.getItem("token")) {
   alert("Admin login required");
   window.location.href = "admin-login.html";
 }
-
-/* ================= BASE URL ================= */
-const BASE_URL = "http://localhost:8080";
 
 /* ================= SECTION SWITCH ================= */
 function showSection(id, el) {
@@ -38,7 +36,7 @@ function createDoctor() {
     specialization: dspec.value || ""
   };
 
-  fetch(`${BASE_URL}/doctors/add`, {
+  apiFetch("/doctors/add", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(doctor)
@@ -56,7 +54,7 @@ function createDoctor() {
 
 /* ================= LOAD DOCTORS ================= */
 function loadDoctors() {
-  fetch(`${BASE_URL}/doctors/all`)
+  apiFetch("/doctors/all")
     .then(res => res.json())
     .then(doctors => {
 
@@ -94,7 +92,8 @@ function loadDoctors() {
 
 /* ================= LOGOUT ================= */
 function logout() {
-  localStorage.removeItem("adminLoggedIn");
+  localStorage.removeItem("loggedAdmin");
+  localStorage.removeItem("token");
   window.location.href = "admin-login.html";
 }
 

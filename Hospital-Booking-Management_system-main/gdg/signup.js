@@ -9,7 +9,7 @@ function signup() {
     return;
   }
 
-  fetch("http://localhost:8080/patients/signup", {
+  apiFetch("/patients/signup", {
     method: "POST",
     headers: {
       "Content-Type": "application/json"

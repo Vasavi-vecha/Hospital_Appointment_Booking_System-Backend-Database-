@@ -3,7 +3,8 @@ package com.appointment.booking.model;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "appointments")
+@Table(name = "appointments",
+        uniqueConstraints = @UniqueConstraint(columnNames = {"doctor_email", "date", "time"}))
 public class Appointment {
 
     @Id
